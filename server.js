@@ -1,9 +1,10 @@
 require("dotenv").config(); // load .env variables
 
 const PORT = process.env.PORT || 5000;
-const app = require("express")();
+const app = require("express");
 const http = require("http").Server(app);
 const io = require("socket.io")(http);
+app.use(cors());
 app.get("/", (req, res) => {
   res.send("this is the test route to make sure server is working");
 });
